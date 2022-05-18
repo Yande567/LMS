@@ -1,15 +1,14 @@
 @extends('layouts.layouts')
 
     @section('title')
-        LMS Login
+        LMS | Login
     @endsection
 
     @section('content')
-    <div id="login" class="container">
-        <div class="">
-            <div class="container">
-                <div id="login-row" class="row">
-                    <div id="login-column" class="col-md-6">
+    <div id="login" class="login-cards container">
+            <div class="lib-container">
+                <div id="login-row">
+                    <div id="login-column" class="login-column">
                         <div id="login-box" class="col-md-12">
                             <form method="POST" action="{{ route('login') }}" id="form">
                                 @csrf
@@ -17,7 +16,7 @@
         
                                 <div class="form-group">
                                     <label for="email" class="text-info">Email:</label><br>
-                                    <input type="email" name="email" id="email" class="form-control" :value="old('email')" required autofocus>
+                                    <input type="email" name="email" id="email" class="form-control" :value="old('email')" required>
                                 </div>
         
                                 <div class="form-group">
@@ -54,10 +53,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="">
-            <div class="container row">
+        
+            <div class="students-container row">
                 <div id="student-login-row" class="row">
                     <div id="student-login-column" class="col-md-6">
                         <div id="student-login-box" class="col-md-12">
@@ -67,7 +64,7 @@
         
                                 <div class="form-group">
                                     <label for="student_number" class="text-info">Student Number:</label><br>
-                                    <input type="integer" name="student_number" id="student_number" class="form-control" :value="old('student_number')" required autofocus>
+                                    <input type="integer" name="student_number" id="student_number" class="form-control" :value="old('student_number')" required>
                                 </div>
         
                                 <div class="form-group">
@@ -104,7 +101,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         
     </div>
     
