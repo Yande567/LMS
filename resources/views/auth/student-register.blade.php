@@ -54,12 +54,14 @@
                                 <label for="email" class="text-info">Email:</label>
                                 <input id="email" class="form-control" type="email" name="email" :value="old('email')" required>
                             </div>
-    
+                            
+                            <!--Which School They Belong to-->
                             <div class="form-group">
                                 <label for="school" class="text-info">School:</label>
                                 <input type="text" id="school" class="form-control" name="school" :value="old('school')" required >
                             </div>
 
+                            <!--Student Number-->
                             <div class="form-group">
                                 <label for="student-number" class="text-info">School Number:</label>
                                 <input type="text" id="student-number" class="form-control" name="student-number" :value="old('student-number')" required >
