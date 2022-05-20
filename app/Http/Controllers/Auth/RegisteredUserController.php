@@ -48,14 +48,13 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        $user_id = 5;
 
         $libriarian_info = LibrarianInfo::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'contact' => $request->contact,
             'gender' => $request->gender,
-            'user_id' => $user_id,
+            'user_id' => Auth::id(),
             
         ]);
 

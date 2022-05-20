@@ -46,7 +46,7 @@
                                 </div>
                                     
                                 <div id="register-link" class="text-right text-info">
-                                    <a href="{{ route('register') }}" class="text-info">Register here</a>
+                                    <a href="{{ route('register-librarian') }}" class="text-info">Register here</a>
                                 </div>
                             </form>
                         </div>
@@ -94,7 +94,7 @@
                                 </div>
                                     
                                 <div id="register-link" class="text-right text-info">
-                                    <a href="{{ route('register') }}" class="text-info">Register here</a>
+                                    <a href="{{ route('student-register') }}" class="text-info">Register here</a>
                                 </div>
                             </form>
                         </div>

@@ -1,7 +1,7 @@
 @extends('layouts.layouts')
 
 @section('title')
-    LMS Register
+    LMS Student Registration
 @endsection
 
 @section('content')
@@ -14,7 +14,7 @@
                         <form class="form" method="POST" action="{{ route('register') }}">
                             @csrf
     
-                            <h3 class="text-center text-info">Librarian Registration</h3>
+                            <h3 class="text-center text-info">Student Registration</h3>
     
                             <!--First Name-->
                             <div class="form-group">
@@ -55,16 +55,14 @@
                                 <input id="email" class="form-control" type="email" name="email" :value="old('email')" required>
                             </div>
     
-                            <!--Password-->
                             <div class="form-group">
-                                <label for="password" class="text-info">Password</label>
-                                <input id="password" class="form-control" type="password" name="password" required autocomplete="new-password">
+                                <label for="school" class="text-info">School:</label>
+                                <input type="text" id="school" class="form-control" name="school" :value="old('school')" required >
                             </div>
-    
-                            <!--Confirm Password-->
+
                             <div class="form-group">
-                                <label for="password_confirmation" class="text-info">Confirm Password</label>
-                                <input id="password_confirmation" class="form-control" type="password" name="password_confirmation" required autocomplete="password_confirmation">
+                                <label for="student-number" class="text-info">School Number:</label>
+                                <input type="text" id="student-number" class="form-control" name="student-number" :value="old('student-number')" required >
                             </div>
     
                             <div class="form-group flex items-center justify-end mt-4">
