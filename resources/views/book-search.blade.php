@@ -56,7 +56,7 @@
 <script type="text/javascript">
     var categories_list = $('#categories_list').val();
 </script>
-<script type="text/javascript" src="{{  asset('static/custom/js/script.searchbook.js') }}"></script>
+<script type="text/javascript" src="{{  asset('auth/script.searchbook.js') }}"></script>
 
 <script type="text/template" id="search_book">
     @include('search_book')
