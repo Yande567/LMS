@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class StudentsRegisterController extends Controller
 {
@@ -82,3 +83,39 @@ class StudentsRegisterController extends Controller
         //
     }
 }
+public function postRegistration(Request $request){
+
+		$validator = $request->validate([
+
+				'first_name'			=> 'required|alpha',
+				'last_name'			    => 'required|alpha',
+				'gender'            	=> 'required',
+				'contact'		        => 'required',
+				'email'		        	=> 'required|email',
+				'school'			    => 'required',
+				'student-number'		=> 'required'
+
+		]);
+
+		if(!$validator) {
+			return Redirect::route('student-registration')
+				->withErrors($validator)
+				->withInput();   // fills the field with the old inputs that were correct
+
+		} else {
+			$student = Student::create(array(
+				'first_name'	=> $request->get('first_name'),
+				'last_name'		=> $request->get('last_name'),
+				'gender'		=> $request->get('gender'),
+				'contact'		=> $request->get('contact'),
+				'email'		    => $request->get('email'),
+                'school'        => $request->get('school'),
+				'student_number'=> $request->get('student-number'),
+			));
+
+			if($student){
+				return Redirect::route('student-register')
+					->with('global', 'You will be successfully registered!');
+			}
+		}
+	}
