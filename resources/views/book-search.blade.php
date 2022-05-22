@@ -59,6 +59,6 @@
 <script type="text/javascript" src="{{  asset('auth/script.searchbook.js') }}"></script>
 
 <script type="text/template" id="search_book">
-    @include('search_book')
+    @include('search_book') 
 </script>
 @stop
