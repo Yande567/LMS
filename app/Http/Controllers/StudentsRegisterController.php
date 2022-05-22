@@ -103,7 +103,7 @@ public function postRegistration(Request $request){
 				->withInput();   // fills the field with the old inputs that were correct
 
 		} else {
-			$student = Student::create(array(
+			$student = students_register::create(array(
 				'first_name'	=> $request->get('first_name'),
 				'last_name'		=> $request->get('last_name'),
 				'gender'		=> $request->get('gender'),
