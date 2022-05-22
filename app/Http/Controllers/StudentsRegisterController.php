@@ -98,7 +98,7 @@ public function postRegistration(Request $request){
 		]);
 
 		if(!$validator) {
-			return Redirect::route('student-registration')
+			return Redirect::route('student-register')
 				->withErrors($validator)
 				->withInput();   // fills the field with the old inputs that were correct
 
