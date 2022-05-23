@@ -2,7 +2,7 @@
 /* Sidebar */
 .sidebar {
 position: fixed;
-margin-top: 5rem;
+margin-top: 3rem;
 top: 0;
 bottom: 0;
 left: 0;
@@ -25,4 +25,17 @@ height: 20rem;
 padding-top: 0.5rem;
 overflow-x: hidden;
 overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar {
+    position: fixed;
+    margin-top: 3rem;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0.5rem 0 0;
+    width: 240px;
+    z-index: 600;
+    border: none;
+    box-shadow: none;
 }

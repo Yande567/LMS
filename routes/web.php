@@ -25,7 +25,18 @@ Route::get('/', function () {
 
 require __DIR__.'/auth.php';
 
-//Librarian Routes
+// Admin Routes
+Route::get('/admin-dashboard', function() {
+    return view('Admin.admin_dashboard');
+})->name('admin-dashboard');
+
+
+
+// Librarian Routes
+Route::get('/librarian-dashboard', function() {
+    return view('Librarian.librarian_dashboard');
+})->name('librarian-dashboard');
+
 Route::get('/register-librarian', [LibrarianRegistrationInfoController::class,
     'create'])->name('register-librarian');
 
@@ -33,7 +44,11 @@ Route::post('/register-librarian/save-info', [LibrarianRegistrationInfoControlle
     'store'])->name('save-librarian-reg-info');
 
 
-//Students Routes
+// Students Routes
+Route::get('/students-dashboard', function() {
+    return view('Students.students_dashboard');
+})->name('students-dashboard');
+
 Route::get('/student-register', [StudentsRegisterController::class, 
     'create'])->name('student-register');
 
