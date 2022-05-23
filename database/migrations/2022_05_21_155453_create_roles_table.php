@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('librarian_registers', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name', 25);
-            $table->string('last_name', 25);
-            $table->string('gender', 10);
-            $table->string('email', 50);
-            $table->integer('contact');
+            $table->string('name', 25);
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('librarian_registers');
+        Schema::dropIfExists('roles');
     }
 };

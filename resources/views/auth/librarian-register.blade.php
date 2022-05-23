@@ -5,13 +5,17 @@
 @endsection
 
 @section('content')
+
+    @if($errors->any())
+    <h4>{{$errors->first()}}</h4>
+    @endif
     
     <div class="register">
         <div class="container ">
             <div class="row justify-content-center align-items-center" id="row">
                 <div id="column" class="col-md-6">
-                    <div id="register-box" class="col-md-12">
-                        <form class="form" method="POST" action="{{ route('register-librarian') }}">
+                    <div id="librarian-register-box" class="col-md-12">
+                        <form class="form" method="POST" action="{{ route('save-librarian-reg-info') }}">
                             @csrf
     
                             <h3 class="text-center text-info">Librarian Registration</h3>
@@ -55,17 +59,6 @@
                                 <input id="email" class="form-control" type="email" name="email" :value="old('email')" required>
                             </div>
     
-                            <!--Password-->
-                            <div class="form-group">
-                                <label for="password" class="text-info">Password</label>
-                                <input id="password" class="form-control" type="password" name="password" required autocomplete="new-password">
-                            </div>
-    
-                            <!--Confirm Password-->
-                            <div class="form-group">
-                                <label for="password_confirmation" class="text-info">Confirm Password</label>
-                                <input id="password_confirmation" class="form-control" type="password" name="password_confirmation" required autocomplete="password_confirmation">
-                            </div>
     
                             <div class="form-group flex items-center justify-end mt-4">
                                 <a class="text-info" href="{{ route('login') }}">

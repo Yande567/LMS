@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class librarian_register extends Model
+class librarian_registration_infos extends Model
 {
     use HasFactory;
 
@@ -15,6 +15,5 @@ class librarian_register extends Model
         'contact',
         'gender',
         'email',
-        
     ];
 }

@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StudentsRegisterController;
-use App\Http\Controllers\LibrarianRegistrationController;
+use App\Http\Controllers\Students\StudentsRegisterController;
+use App\Http\Controllers\Admin\LibrarianRegistrationController;
+use App\Http\Controllers\Admin\LibrarianRegistrationInfoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +26,11 @@ Route::get('/', function () {
 require __DIR__.'/auth.php';
 
 //Librarian Routes
-Route::get('/register-librarian', [LibrarianRegistrationController::class,
+Route::get('/register-librarian', [LibrarianRegistrationInfoController::class,
     'create'])->name('register-librarian');
+
+Route::post('/register-librarian/save-info', [LibrarianRegistrationInfoController::class,
+    'store'])->name('save-librarian-reg-info');
 
 
 //Students Routes
