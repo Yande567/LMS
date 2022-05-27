@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class LibrarianRegistrationInfo extends Model
+class Librarian extends Model
 {
     use HasFactory;
 
@@ -15,10 +16,16 @@ class LibrarianRegistrationInfo extends Model
         'contact',
         'gender',
         'email',
+        'user_id',
     ];
 
     protected $casts = [
         'id' => 'integer',
-        'created_at' => 'datetime',
+        'user_id' => 'integer',
     ];
+
+    public function userInformation()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

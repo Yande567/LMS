@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ URL::asset('css/messages.css') }}">
     <title> @yield('title') </title>
 </head>
 <body>
@@ -14,6 +15,18 @@
             <h3 class="nav-text">Welcome To Our Library Management System</h3>
         </nav>
    </header>
+
+   @if($errors->any())
+          @foreach ($errors->all() as $error)
+              <div class="alert alert-primary" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                  
+                  <h4>{{$error}}</h4>
+              </div>
+          @endforeach
+      @endif
 
    @yield('content')
 

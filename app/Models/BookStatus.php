@@ -5,20 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class LibrarianRegistrationInfo extends Model
+class BookStatus extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'first_name',
-        'last_name',
-        'contact',
-        'gender',
-        'email',
+        'book_id',
+        'book_title',
+        'number_of_availible_books',
     ];
 
     protected $casts = [
         'id' => 'integer',
-        'created_at' => 'datetime',
+        'book_id' => 'integer',
+        'number_of_availible_copies' => 'integer',
     ];
 }

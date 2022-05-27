@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('students_registers', function (Blueprint $table) {
+        Schema::create('book_statuses', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('gender', 10);
-            $table->string('email', 50);
-            $table->string('computer_number');
-            $table->integer('contact');
+            $table->integer('book_id')->unsigned()->unique;
+            $table->integer('number_of_availible_copies');
             $table->timestamps();
+
+            // Foreign Key Constraints
+            $table->foreign('book_id')->references('id')->on('books')
+                    ->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('students_registers');
+        Schema::dropIfExists('book_statuses');
     }
 };

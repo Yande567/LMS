@@ -2,13 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use App\Models\Librarian;
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
 
-class LibrarianRegistrationInfoSeeder extends Seeder
+class BookStatusSeeder extends Seeder
 {
     /**
      * Run the database seeds.

@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Students;
+namespace App\Http\Controllers\Books;
 
-use Illuminate\Http\Request;
+use App\Models\IssueHistory;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreIssueHistoryRequest;
+use App\Http\Requests\UpdateIssueHistoryRequest;
 
-class StudentsRegisterController extends Controller
+class IssueHistoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,16 +26,16 @@ class StudentsRegisterController extends Controller
      */
     public function create()
     {
-        return view('auth.student-register');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreIssueHistoryRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreIssueHistoryRequest $request)
     {
         //
     }
@@ -41,10 +43,10 @@ class StudentsRegisterController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\IssueHistory  $issueHistory
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(IssueHistory $issueHistory)
     {
         //
     }
@@ -52,10 +54,10 @@ class StudentsRegisterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\IssueHistory  $issueHistory
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(IssueHistory $issueHistory)
     {
         //
     }
@@ -63,11 +65,11 @@ class StudentsRegisterController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Http\Requests\UpdateIssueHistoryRequest  $request
+     * @param  \App\Models\IssueHistory  $issueHistory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateIssueHistoryRequest $request, IssueHistory $issueHistory)
     {
         //
     }
@@ -75,10 +77,10 @@ class StudentsRegisterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\IssueHistory  $issueHistory
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(IssueHistory $issueHistory)
     {
         //
     }

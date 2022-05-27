@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'role_id',
         'email',
         'password',
     ];
@@ -45,6 +45,6 @@ class User extends Authenticatable
 
     public function userInformation()
     {
-        return $this->hasOne('App\Models\LibrarianInfo', 'user_id');
+        return $this->hasOne('App\Models\Librarian', 'user_id');
     }
 }

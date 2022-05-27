@@ -5,6 +5,7 @@
     @endsection
 
     @section('content')
+
     <div id="login" class="login-cards container">
             <div class="lib-container">
                 <div id="login-row">

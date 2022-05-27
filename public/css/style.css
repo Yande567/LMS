@@ -117,4 +117,22 @@ body {
     margin-left: auto;
 }
 
+.display-container.container{
+    width: 70%;
+    padding-left: 3rem;
+}
+
+.create-lib-btn{
+    padding: 1rem;
+}
+
+.container #row #column #add-book-box{
+    max-width: 600px;
+    height: 820px;
+    border: 1px solid rgb(156, 156, 156);
+    background-color: rgb(234, 234, 234);
+    padding: 2rem;
+    margin: 2rem;
+}
+
 

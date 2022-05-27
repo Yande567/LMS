@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        if(!Schema::hasTable('librarian_infos')) {
-            Schema::create('librarian_infos', function (Blueprint $table) {
+        if(!Schema::hasTable('librarians')) {
+            Schema::create('librarians', function (Blueprint $table) {
                 $table->increments('id');
-                $table->integer('user_id');
+                $table->integer('user_id')->unsigned();
                 $table->string('first_name');
                 $table->string('last_name');
                 $table->string('gender', 10);
-                $table->string('contact', 10);
+                $table->string('contact', 10)->unique();
                 $table->timestamps();
 
                 //foreign key constraints
@@ -37,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('librarian_infos');
+        Schema::dropIfExists('librarians');
     }
 };

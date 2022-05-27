@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('librarian_registration_infos', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('first_name', 25);
             $table->string('last_name', 25);
             $table->string('gender', 10);

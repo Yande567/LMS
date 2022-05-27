@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\LibrarianRegistrationInfo;
 use App\Http\Requests\StoreLibrarianRegistrationInfoRequest;
@@ -16,7 +18,12 @@ class LibrarianRegistrationInfoController extends Controller
      */
     public function index()
     {
-        //
+        //DB Query to get all Librarians waiting to be registered
+        $pending_requests = DB::table('librarian_registration_infos')
+                                            ->orderBy('created_at', 'desc')
+                                            ->get();
+
+        return view('Admin.register_librarian', compact('pending_requests'));
     }
 
     /**
@@ -98,8 +105,11 @@ class LibrarianRegistrationInfoController extends Controller
      * @param  \App\Models\LibrarianRegistrationInfo  $librarianRegistrationInfo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LibrarianRegistrationInfo $librarianRegistrationInfo)
+    public function destroy($id)
     {
-        //
+        $info = LibrarianRegistrationInfo::where('id', $id)->firstorfail()->delete();
+        echo ("Librarian Registration Record deleted successfully.");
+        return redirect()->route('admin-register-librarian')
+                         ->with('status','Librarian Registration Info Successfully Deleted');
     }
 }

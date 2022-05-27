@@ -7,7 +7,11 @@
 @section('content')
 
     @if($errors->any())
-    <h4>{{$errors->first()}}</h4>
+        @foreach ($errors->all() as error)
+            <div class="alert alert-primary" role="alert">
+                <h4>{{$errors}}</h4>
+            </div>
+        @endforeach
     @endif
     
     <div class="register">

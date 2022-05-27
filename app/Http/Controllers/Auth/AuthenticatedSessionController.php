@@ -34,16 +34,14 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         $user_id = Auth::id();
-        $role_id = DB::table('users')->where('id', '=', '1')->value('role_id');
-
-        // dd($role_id);
+        $role_id = DB::table('users')->where('id', $user_id)->value('role_id');
 
         if($role_id == 1){
-            return redirect('/admin-dashboard');
+            return redirect('/admin/dashboard');
         } elseif($role_id == 2){
-            return redirect('/librarian-dashboard');
+            return redirect('/librarian/dashboard');
         } else{
-            return redirect('/students-dashboard');
+            return redirect('/students/dashboard');
         }
         
     }
