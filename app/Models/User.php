@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Models\Librarian', 'user_id');
     }
+
+    public function studentInformation()
+    {
+        return $this->hasOne('App\Models\Students', 'user_id');
+    }
 }

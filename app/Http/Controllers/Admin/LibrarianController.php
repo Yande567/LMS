@@ -6,7 +6,9 @@ use App\Models\User;
 use App\Models\Librarian;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
 use App\Models\LibrarianRegistrationInfo;
 use App\Http\Requests\StoreLibrarianRequest;
 use App\Http\Requests\UpdateLibrarianRequest;
@@ -21,7 +23,25 @@ class LibrarianController extends Controller
      */
     public function index()
     {
-        //
+        if(Auth::check()){
+            $user = Auth::user();
+
+            if(!($user->role_id == 1)){
+                abort(403);
+            } else{
+
+                //Query to get all emails
+                $emails = DB::table('users')->select('email')
+                            ->where('role_id', '=', 2)
+                            ->orderby('id', 'desc')->get();
+                // Query to get all registered librarians
+                $librarians = DB::table('librarians')->orderby('user_id', 'desc')->get();
+                return view('Admin.view_librarians', compact('librarians', 'emails'));
+            }
+
+        } else{
+            return redirect(RouteServiceProvider::HOME);
+        }
     }
 
     /**

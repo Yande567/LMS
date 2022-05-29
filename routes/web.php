@@ -48,6 +48,9 @@ Route::prefix('/admin')->group(function () {
     
     Route::post('/save-librarian', [CreateLibrarianController::class, 
         'store'])->name('save_librarian');
+
+    Route::get('/view-librarians', [LibrarianController::class,
+         'index'])->name('view-librarians');
     
 });
 
@@ -96,6 +99,9 @@ Route::prefix('/books')->group(function () {
 
     Route::post('/save-book', [BooksController::class,
         'store'])->name('save-book');
+
+    Route::get('/view-books', [BooksController::class,
+        'index'])->name('view-books');
 
 });
 

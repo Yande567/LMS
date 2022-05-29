@@ -38,8 +38,8 @@
         <nav id="sidebarMenu" class="collapse d-lg-block sidebar">
             <div class="">
                 <div class="list-group list-group-flush mx-3 mt-4">
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple">
-                        <span>Home</span>
+                    <a href="{{ route('view-books') }}" class="list-group-item list-group-item-action py-2 ripple">
+                        <span>View Books</span>
                     </a>
 
                     <a href="{{ route('admin-register-librarian') }}" class="list-group-item list-group-item-action py-2 ripple">
@@ -50,8 +50,8 @@
                         class="fas fa-chart-line fa-fw me-3"></i><span>Register Students</span>
                     </a>
 
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple">
-                        <span>Registered Librarian</span>
+                    <a href="{{ route('view-librarians') }}" class="list-group-item list-group-item-action py-2 ripple">
+                        <span>Registered Librarians</span>
                     </a>
                     <a href="#" class="list-group-item list-group-item-action py-2 ripple">
                         <span>Registered Students</span>

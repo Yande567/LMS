@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Books;
 
 use App\Models\Books;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
@@ -19,8 +20,25 @@ class BooksController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {  
+        if(Auth::check()){
+            $books = DB::table('books')->orderby('author_lname', 'desc')->get();
+
+            $user = Auth::user();
+
+            if($user->role_id == 1){
+                return view('Admin.view_books', compact('books'));
+            }elseif($user->role_id == 2){
+                return view('Librarian.view_books', compact('books'));
+            }else{
+                return view('Students.view_books', compact('books'));
+            }
+
+        } else{
+            return redirect('/login');
+        }
+       
+        
     }
 
     /**

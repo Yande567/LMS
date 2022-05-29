@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\LibrarianRegistrationInfo;
 use App\Http\Requests\StoreLibrarianRegistrationInfoRequest;
@@ -18,12 +20,26 @@ class LibrarianRegistrationInfoController extends Controller
      */
     public function index()
     {
-        //DB Query to get all Librarians waiting to be registered
-        $pending_requests = DB::table('librarian_registration_infos')
-                                            ->orderBy('created_at', 'desc')
-                                            ->get();
 
-        return view('Admin.register_librarian', compact('pending_requests'));
+        if(Auth::check()){
+            $user = Auth::user();
+
+            if(!($user->role_id == 1)){
+                abort(403);
+            } else{
+                //DB Query to get all Librarians waiting to be registered
+                $pending_requests = DB::table('librarian_registration_infos')
+                ->orderBy('created_at', 'desc')
+                ->get();
+
+                return view('Admin.register_librarian', compact('pending_requests'));
+            }
+
+        } else{
+            return redirect(RouteServiceProvider::HOME);
+        }
+
+        
     }
 
     /**
