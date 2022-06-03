@@ -17,11 +17,13 @@ class Students extends Model
        'last_name',
        'gender',
        'contact',
+       'school',
     ];
 
     protected $casts = [
         'id' => 'integer',
         'user_id' => 'integer',
+        'student_id' => 'string',
     ];
 
     public function studentInformation()

@@ -29,6 +29,7 @@ class StudentsSeeder extends Seeder
             'first_name' => 'Student',
             'last_name' => 'Test',
             'contact' => '0326987562',
+            'school' => 'School of Natural Sciences',
             'gender' => 'Male',
             'user_id'=> 3,
             'student_id' => $student_id,

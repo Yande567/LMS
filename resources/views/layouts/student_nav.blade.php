@@ -42,33 +42,18 @@
                         <span>View Books</span>
                     </a>
 
-                    <a href="{{ route('admin-register-librarian') }}" class="list-group-item list-group-item-action py-2 ripple">
-                        <span>Register Librarian</span>
+                    <a href="{{ route('display-borrow-history') }}" class="list-group-item list-group-item-action py-2 ripple">
+                        <span>History</span>
                     </a>
 
-                    <a href="{{ route('pending-requests') }}" class="list-group-item list-group-item-action py-2 ripple">
-                        <span>Register Students</span>
-                    </a>
-
-                    <a href="{{ route('view-librarians') }}" class="list-group-item list-group-item-action py-2 ripple">
-                        <span>Registered Librarians</span>
-                    </a>
-                    <a href="{{ route('view-students') }}" class="list-group-item list-group-item-action py-2 ripple">
-                        <span>Registered Students</span>
+                    <a href="{{ route('book-suggestion') }}" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fas fa-chart-line fa-fw me-3"></i><span>Book Suggestion</span>
                     </a>
 
                     <a href="#" class="list-group-item list-group-item-action py-2 ripple">
-                        <span>Payments/Penalties</span>
+                        <span>Penalties and Payments</span>
                     </a>
-                    <a href="{{ route('add-book') }}" class="list-group-item list-group-item-action py-2 ripple">
-                        <span>Add Book</span>
-                    </a>
-                    <a href="{{ route('issue_return_books') }}" class="list-group-item list-group-item-action py-2 ripple">
-                        <span>Issue/Return Books</span>
-                    </a>
-                    <a href="{{ route('view-issued-books') }}" class="list-group-item list-group-item-action py-2 ripple">
-                        <span>View Issued Books</span>
-                    </a>
+                   
                 </div>
             </div>
         </nav>

@@ -11,7 +11,7 @@
             <div class="row justify-content-center align-items-center" id="row">
                 <div id="column" class="col-md-6">
                     <div id="register-box" class="col-md-12">
-                        <form class="form" method="POST" action="{{ route('register') }}">
+                        <form class="form" method="POST" action="{{ route('store-info') }}">
                             @csrf
     
                             <h3 class="text-center text-info">Student Registration</h3>
@@ -63,8 +63,8 @@
 
                             <!--Student Number-->
                             <div class="form-group">
-                                <label for="student-number" class="text-info">School Number:</label>
-                                <input type="text" id="student-number" class="form-control" name="student-number" :value="old('student-number')" required >
+                                <label for="computer_number" class="text-info">Student Number:</label>
+                                <input type="text" id="computer_number" class="form-control" name="computer_number" :value="old('computer_number')" required >
                             </div>
     
                             <div class="form-group flex items-center justify-end mt-4">

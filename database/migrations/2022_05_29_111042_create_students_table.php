@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('first_name', 25);
             $table->string('last_name', 25);
             $table->string('gender', 10);
+            $table->string('school', 50);
             $table->string('contact', 10)->unique();
             $table->timestamps();
 

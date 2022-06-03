@@ -12,7 +12,7 @@ class BookStatus extends Model
     protected $fillable = [
         'book_id',
         'book_title',
-        'number_of_availible_books',
+        'number_of_availible_copies',
     ];
 
     protected $casts = [

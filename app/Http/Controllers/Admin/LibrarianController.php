@@ -40,7 +40,7 @@ class LibrarianController extends Controller
             }
 
         } else{
-            return redirect(RouteServiceProvider::HOME);
+            return redirect('/login');
         }
     }
 

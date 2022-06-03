@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('gender', 10);
             $table->string('email', 50);
-            $table->string('computer_number');
+            $table->string('computer_number', 10);
+            $table->string('school', 50);
             $table->integer('contact');
             $table->timestamps();
         });

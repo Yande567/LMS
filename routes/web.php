@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Books\BooksController;
 use App\Http\Controllers\Admin\LibrarianController;
+use App\Http\Controllers\Books\SuggestBookController;
+use App\Http\Controllers\Students\StudentsController;
+use App\Http\Controllers\Books\IssueHistoryController;
 use App\Http\Controllers\Admin\CreateLibrarianController;
 use App\Http\Controllers\Students\StudentsRegisterController;
 use App\Http\Controllers\Admin\LibrarianRegistrationInfoController;
@@ -41,7 +44,7 @@ Route::prefix('/admin')->group(function () {
         'store'])->name('save-librarian');
     
     Route::delete('/register-librarian/delete{id}', [LibrarianRegistrationInfoController::class, 
-        'delte'])->name('delete-librarian-registration-request');
+        'destroy'])->name('delete-librarian-registration-request');
     
     Route::get('/create-librarian', [CreateLibrarianController::class, 
         'create'])->name('create-librarian');
@@ -81,11 +84,35 @@ Route::prefix('/librarian')->group(function () {
 Route::prefix('/students')->group(function () {
 
     Route::get('/dashboard', function() {
-        return view('Students.students_dashboard');
+        return view('layouts.student_nav');
     })->name('students-dashboard');
     
     Route::get('/register', [StudentsRegisterController::class, 
         'create'])->name('student-register');
+
+    Route::post('/store-info', [StudentsRegisterController::class,
+        'store'])->name('store-info');
+
+    Route::get('/student-registration-info', [StudentsRegisterController::class,
+        'index'])->name('pending-requests');
+
+    Route::post('/register-student/save{id}', [StudentsController::class, 
+        'store'])->name('save-student');
+
+    Route::delete('/register-student/delete/{id}', [StudentsRegisterController::class, 
+        'destroy'])->name('delete-student-registration-info');
+
+    Route::get('/create-student', [StudentsController::class, 
+        'create'])->name('create-student');
+
+    Route::post('/create-student/save', [StudentsController::class, 
+        'createStudent'])->name('create-student-save');
+
+    Route::get('/view', [StudentsController::class,
+        'index'])->name('view-students');
+
+    Route::get('/book_history', [IssueHistoryController::class, 
+        'displayStudentHistory'])->name('display-borrow-history');
     
 });
 
@@ -102,6 +129,30 @@ Route::prefix('/books')->group(function () {
 
     Route::get('/view-books', [BooksController::class,
         'index'])->name('view-books');
+
+    Route::get('/issue-books', [IssueHistoryController::class,
+        'create'])->name('issue_return_books');
+
+    Route::post('/issue-books/save', [IssueHistoryController::class,
+        'store'])->name('issue_return_books_save');
+    
+    Route::post('/issue-books/update', [IssueHistoryController::class, 
+        'update'])->name('issue_return_books_update');
+
+    Route::get('/view-issued-books', [IssueHistoryController::class, 
+        'index'])->name('view-issued-books');
+
+    Route::get('/book-suggestions', [SuggestBookController::class, 
+        'create'])->name('book-suggestion');
+
+    Route::post('/book-suggestions/save', [SuggestBookController::class,
+        'store'])->name('store-book-suggest');
+
+    Route::get('/view-book-suggestions', [SuggestBookController::class, 
+        'index'])->name('book_suggestion');
+
+    Route::delete('/view-book-suggestions{id}', [SuggestBookController::class, 
+        'destroy'])->name('delete-book-suggestion');
 
 });
 

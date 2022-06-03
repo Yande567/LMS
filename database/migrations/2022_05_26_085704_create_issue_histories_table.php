@@ -17,9 +17,9 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('book_id')->unsigned();
             $table->integer('user_id')->unsigned();
-            $table->string('status');
-            $table->date('issue_date');
-            $table->date('return_date')->nullable();
+            $table->string('status', 15);
+            $table->timestamp('issue_date', $precision = 0);
+            $table->date('return_date');
             $table->timestamps();
 
             // Foreign Key Constraints

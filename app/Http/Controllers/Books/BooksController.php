@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Books;
 
 use App\Models\Books;
+use App\Models\BookStatus;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -108,6 +109,16 @@ class BooksController extends Controller
                         'publish_date' => $request->publish_date,
                         'publisher' => $request->publisher,
                         'created_by' =>$user->id,
+                    ]);
+
+                    $book_id = DB::table('books')->select('id')
+                                  ->where('ISBN_number', '=', $request->isbn)
+                                  ->get();
+                    
+                    // Update Book Status Table
+                    $book_status = BookStatus::create([
+                        'book_id' => $book_id[0]->id,
+                        'number_of_availible_copies' => $request->number_of_copies,
                     ]);
 
                     return Redirect::back()->withErrors(['msg' => 'Book Added Succesfully']);

@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class students_registers extends Model
+class suggestBook extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'first_name',
-        'last_name',
-        'contact',
-        'gender',
-        'email',
-        'student_number',
-        'school',
+        'title',
+        'isbn',
+        'category',
+        'suggested_by',
     ];
+
+
 }

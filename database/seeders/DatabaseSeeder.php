@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             AdminUserSeeder::class,
             LibrarianSeeder::class,
             StudentsSeeder::class,
+            BooksSeeder::class,
         ]);
     }
 }

@@ -38,26 +38,33 @@
       <nav id="sidebarMenu" class="collapse d-lg-block sidebar">
         <div class="position-sticky">
           <div class="list-group list-group-flush mx-3 mt-4">
-            <a href="{{ route('view-books') }}" class="list-group-item list-group-item-action py-2 ripple"><i
-                class="fas fa-lock fa-fw me-3"></i><span>Books</span></a>
-            <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                class="fas fa-chart-line fa-fw me-3"></i><span>All Waiting Students</span></a>
-            <a href="#" class="list-group-item list-group-item-action py-2 ripple">
-              <i class="fas fa-chart-pie fa-fw me-3"></i><span>Register Students</span></a>
-            <a href="#" class="list-group-item list-group-item-action py-2 ripple">
-              <i class="fas fa-chart-pie fa-fw me-3"></i><span>Registered Students</span>
+            <a href="{{ route('view-books') }}" class="list-group-item list-group-item-action py-2 ripple">
+              <span>Books</span>
             </a>
             <a href="#" class="list-group-item list-group-item-action py-2 ripple">
-              <i class="fas fa-chart-pie fa-fw me-3"></i><span>Registered Students</span>
+              <span>All Waiting Students</span>
             </a>
-            <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                class="fas fa-chart-bar fa-fw me-3"></i><span>Add Book Category</span></a>
-            <a href="{{ route('add-book') }}" class="list-group-item list-group-item-action py-2 ripple"><i
-                class="fas fa-globe fa-fw me-3"></i><span>Add Book</span></a>
-            <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                class="fas fa-building fa-fw me-3"></i><span>Issue/Return Books</span></a>
-            <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                class="fas fa-calendar fa-fw me-3"></i><span>View Issued Books</span></a>
+            <a href="{{ route('pending-requests') }}" class="list-group-item list-group-item-action py-2 ripple">
+              <span>Register Students</span>
+            </a>
+            <a href="{{ route('view-students') }}" class="list-group-item list-group-item-action py-2 ripple">
+              <span>Registered Students</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action py-2 ripple">
+              <span>Payments/Penalties</span>
+            </a>
+            <a href="{{ route('add-book') }}" class="list-group-item list-group-item-action py-2 ripple">
+              <span>Add Book</span>
+            </a>
+            <a href="{{ route('issue_return_books') }}" class="list-group-item list-group-item-action py-2 ripple">
+              <span>Issue/Return Books</span>
+            </a>
+            <a href="{{ route('view-issued-books') }}" class="list-group-item list-group-item-action py-2 ripple">
+              <span>View Issued Books</span>
+            </a>
+            <a href="{{ route('book_suggestion') }}" class="list-group-item list-group-item-action py-2 ripple">
+              <span>View Book Suggestions</span>
+            </a>
           </div>
         </div>
       </nav>

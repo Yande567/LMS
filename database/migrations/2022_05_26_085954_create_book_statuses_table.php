@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('book_statuses', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('book_id')->unsigned()->unique;
-            $table->integer('number_of_availible_copies');
+            $table->integer('number_of_availible_copies')->default(5);
             $table->timestamps();
 
             // Foreign Key Constraints
